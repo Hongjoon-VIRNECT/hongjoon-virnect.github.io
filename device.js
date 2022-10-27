@@ -29,7 +29,8 @@
 
     function getCanvas() {
         if (canvas == null) {
-            canvas = document.createElement('canvas');
+            //canvas = document.createElement('canvas');
+            canvas = document.getElementById('canvas');
         }
 
         return canvas;
@@ -37,7 +38,7 @@
 
     function getGl() {
         if (gl == null) {
-            gl = getCanvas().getContext('experimental-webgl');
+            gl = getCanvas().getContext('webgl');
         }
 
         return gl;
