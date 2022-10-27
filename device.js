@@ -58,6 +58,13 @@
         return glRenderer;
     }
 
+    function getDebugInfo() {
+        if (glRenderer == null) {
+            debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
+        }
+        return debugInfo;
+    }
+
     function getModels() {
         if (models == null) {
             var gpu = getGlRenderer(),
