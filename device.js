@@ -29,8 +29,7 @@
 
     function getCanvas() {
         if (canvas == null) {
-            //canvas = document.createElement('canvas');
-            canvas = document.getElementById('canvas');
+            canvas = document.createElement('canvas');
         }
 
         return canvas;
@@ -38,7 +37,7 @@
 
     function getGl() {
         if (gl == null) {
-            gl = getCanvas().getContext('webgl');
+            gl = getCanvas().getContext('webgl') || getCanvas().getContext('experimental-webgl');
         }
 
         return gl;
@@ -53,7 +52,8 @@
     function getGlRenderer() {
         if (glRenderer == null) {
             debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
-            glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            //glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            glRenderer = getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         }
 
         return glRenderer;
