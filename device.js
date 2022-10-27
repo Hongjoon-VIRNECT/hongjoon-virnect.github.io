@@ -24,7 +24,7 @@
             ['a12', '1242x2688', ['iPhone Xs Max']],
             ['a12x', '1668x2388', ['iPad Pro (3rd gen 11-inch)']],
             ['a12x', '2048x2732', ['iPad Pro (3rd gen 12.9-inch)']],
-            ['a14', '1080x2340', ['iPhone 12 mini', 'iPhone 13 mini']]
+            ['a14', '960x2079', ['iPhone 12 mini', 'iPhone 13 mini']]
         ];
 
     function getCanvas() {
