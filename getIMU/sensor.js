@@ -1,5 +1,5 @@
 (function () {
-    var canvas, gl, glRenderer, models,
+    var canvas, gl, glRenderer, models, accAvailable,
         devices = [
             ['a7', '640x1136', ['iPhone 5', 'iPhone 5s']],
             ['a7', '1536x2048', ['iPad Air', 'iPad Mini 2', 'iPad Mini 3']],
