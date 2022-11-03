@@ -23,6 +23,8 @@ function checkSensors(){
             const rotateDegrees = event.alpha; // alpha: rotation around z-axis
             const leftToRight = event.gamma; // gamma: left to right
             const frontToBack = event.beta; // beta: front back motion
+            // for debugging
+            document.write(event.alpha, event.gamma, event.beta);
 
             handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
         }, true);
