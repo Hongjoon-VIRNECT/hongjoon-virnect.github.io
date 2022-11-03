@@ -50,21 +50,12 @@
     }
 
     function getGlRenderer() {
-        //if (glRenderer == null) {
-        //    debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
-        //    glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-        //}
-        var canvas = document.createElement("canvas");
-        if (canvas != null) {
-            var context = canvas.getContext("webgl") ||
-                canvas.getContext("experimental-webgl");
-            if (context) {
-                var info = context.getExtension("WEBGL_debug_renderer_info");
-                if (info) {
-                    return context.getParameter(info.UNMASKED_RENDERER_WEBGL);
-                }
-            }
+        if (glRenderer == null) {
+            debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
+            glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         }
+
+        return glRenderer;
     }
 
     function getModels() {
