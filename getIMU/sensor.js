@@ -24,7 +24,7 @@ function checkSensors(){
             const leftToRight = event.gamma; // gamma: left to right
             const frontToBack = event.beta; // beta: front back motion
             // for debugging
-            document.write(event.alpha, event.gamma, event.beta);
+            document.write("event alpha: " + event.alpha);
 
             handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
         }, true);
