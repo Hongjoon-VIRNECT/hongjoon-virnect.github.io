@@ -25,12 +25,11 @@ function checkSensors(){
             const frontToBack = event.beta; // beta: front back motion
 
             handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-            document.write(rotateDegrees)
         }, true);
     }
 
     const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
-        // do something amazing
-        document.write("It is moving around!!"+'<br>')
+        // when event is occured the display current values
+        document.write('<p>Alpha: ' + rotateDegrees + 'Beta: ' + frontToBack + 'Gamma: ' + leftToRight + '</p>');
     };
 }
