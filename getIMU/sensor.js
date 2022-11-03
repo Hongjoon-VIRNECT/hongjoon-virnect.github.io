@@ -4,12 +4,12 @@
         if ('Accelerometer' in window) {
             // The `Accelerometer` interface is supported by the browser.
             // Does the device have an accelerometer, though?
-            myHeading.textContent = "Hello world!";
-        return true;
+            textString = "Accelerometer is available!";
+        return textString;
         }
         else {
-            myHeading.textContent = "Bye!";
-            return false;
+            textString = "Not available!";
+            return textString;
         }
     }
 
@@ -19,8 +19,3 @@
 
     window.MobileDevice.getAvailability = getAvailability;
 })();
-
-
-
-
-
