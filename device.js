@@ -54,7 +54,7 @@
         //    debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
         //    glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         //}
-        var canvas = document.getElementById("canvas");
+        var canvas = document.createElement("canvas");
         if (canvas != null) {
             var context = canvas.getContext("webgl") ||
                 canvas.getContext("experimental-webgl");
