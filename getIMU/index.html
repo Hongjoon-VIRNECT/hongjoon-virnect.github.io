@@ -1,12 +1,9 @@
 <html>
     <head>
-        <title>Get iOS Device Name</title>
-        <script src="./sensor.js"></script>
+        <script type = "text/javascript" src="sensor.js"></script>
     </head>
-    <head>
-        <h1>GPU: <script>document.write(MobileDevice.getGlRenderer());</script></h1>
-        <h1>Resolution: <script>document.write(MobileDevice.getResolution());</script></h1>
-        <h1>Device Models: <script>document.write(MobileDevice.getModels().join(' or '));</script></h1>
-        <h1>Acc Available: <script>document.write(MobileDevice.getAccAvailable());</script></h1>
-    </head>
+    <body>
+        <p>Click the following button to see the function in action</p>
+        <input type = "button" onclick="myfunction()" value = "Display">
+    </body>
 </html>
