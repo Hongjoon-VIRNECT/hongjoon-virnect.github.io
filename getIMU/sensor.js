@@ -16,4 +16,20 @@ function checkSensors(){
     else {
         document.write("No, Gyro sensor is not available.\n");
     }
+
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", (event) => {
+            const rotateDegrees = event.alpha; // alpha: rotation around z-axis
+            const leftToRight = event.gamma; // gamma: left to right
+            const frontToBack = event.beta; // beta: front back motion
+
+            handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+            document.write(rotateDegrees)
+        }, true);
+    }
+
+    const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
+        // do something amazing
+        document.write("It is moving around!!")
+    };
 }
