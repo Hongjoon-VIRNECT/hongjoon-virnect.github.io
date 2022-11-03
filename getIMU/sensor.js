@@ -30,6 +30,6 @@ function checkSensors(){
 
     const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
         // when event is occured the display current values
-        document.write('<p>Alpha: ' + rotateDegrees + 'Beta: ' + frontToBack + 'Gamma: ' + leftToRight + '</p>');
+        document.write('<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>');
     };
 }
