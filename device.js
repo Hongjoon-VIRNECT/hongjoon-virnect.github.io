@@ -37,7 +37,7 @@
 
     function getGl() {
         if (gl == null) {
-            gl = getCanvas().getContext('experimental-webgl');
+            gl = getCanvas().getContext('webgl') || getCanvas().getContext('experimental-webgl');
         }
 
         return gl;
@@ -52,10 +52,18 @@
     function getGlRenderer() {
         if (glRenderer == null) {
             debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
-            glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            //glRenderer = debugInfo == null ? 'unknown' : getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            glRenderer = getGl().getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         }
 
         return glRenderer;
+    }
+
+    function getDebugInfo() {
+        if (glRenderer == null) {
+            debugInfo = getGl().getExtension('WEBGL_debug_renderer_info');
+        }
+        return debugInfo;
     }
 
     function getModels() {
@@ -89,6 +97,7 @@
     window.MobileDevice.getGlRenderer = getGlRenderer;
     window.MobileDevice.getModels = getModels;
     window.MobileDevice.getResolution = getResolution;
+    window.MobileDevice.getDebugInfo = getDebugInfo;
 
     window.MobileDevice.is = function (match) {
         var currentModels = getModels();
