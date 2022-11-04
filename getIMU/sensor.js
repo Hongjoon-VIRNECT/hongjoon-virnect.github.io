@@ -18,16 +18,18 @@ function checkSensors(){
     }
 
     if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", function ( event ) {
-            var rotateDegrees = event.alpha; // alpha: rotation around z-axis
-            var leftToRight = event.gamma; // gamma: left to right
-            var frontToBack = event.beta; // beta: front back motion
+        // for debugging message for iOS
+        document.write("Yes, DeviceOrientationEvent is possible"+'<br>');
+        window.addEventListener("deviceorientation", (event) => {
+            const rotateDegrees = event.alpha; // alpha: rotation around z-axis
+            const leftToRight = event.gamma; // gamma: left to right
+            const frontToBack = event.beta; // beta: front back motion
 
             handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-        }, false);
+        }, true);
     }
 
-    var handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
+    const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
         // when event is occured the display current values
         document.write('<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>');
     };
