@@ -1,21 +1,21 @@
 function checkSensors(){
-    document.write("This is sensor information available on your device"+'<br>');
+    //document.write("This is sensor information available on your device"+'<br>');
 
-    if ('Accelerometer' in window) {
-        // The `Accelerometer` interface is supported by the browser.
-        // Does the device have an accelerometer, though?
-        document.write("Yes, Acc sensor is available."+'<br>');
-    }
-    else {
-        document.write("No, Acc sensor is not available."+'<br>');
-    }
+    //if ('Accelerometer' in window) {
+    //    // The `Accelerometer` interface is supported by the browser.
+    //    // Does the device have an accelerometer, though?
+    //    document.write("Yes, Acc sensor is available."+'<br>');
+    //}
+    //else {
+    //    document.write("No, Acc sensor is not available."+'<br>');
+    //}
 
-    if ('Gyroscope' in window) {
-        document.write("Yes, Gyro sensor is avaialble."+'<br>');
-    }
-    else {
-        document.write("No, Gyro sensor is not available."+'<br>');
-    }
+    //if ('Gyroscope' in window) {
+    //    document.write("Yes, Gyro sensor is avaialble."+'<br>');
+    //}
+    //else {
+    //    document.write("No, Gyro sensor is not available."+'<br>');
+    //}
 
     if (DeviceMotionEvent.requestPermission) {
         DeviceMotionEvent.requestPermission()
@@ -51,6 +51,8 @@ function checkSensors(){
         // when event is occured the display current values
         //document.write('<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>');
         var sensorValStr = '<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>';
-        document.getElementById('sensorSpan').innerHTML = sensorValStr;
+        //document.getElementById('sensorSpan').innerHTML = sensorValStr;
+        var dateInputField = document.getElementsById("dateInputField");
+        dateInputField.value = sensorValStr;
     };
 }
