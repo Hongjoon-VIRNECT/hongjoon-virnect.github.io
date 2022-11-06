@@ -51,8 +51,7 @@ function checkSensors(){
         // when event is occured the display current values
         //document.write('<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>');
         var sensorValStr = '<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>';
-        //document.getElementById('sensorSpan').innerHTML = sensorValStr;
-        var dateInputField = document.getElementsById("dateInputField");
-        dateInputField.value = sensorValStr;
+        document.getElementById('results').innerHTML = sensorValStr;
+        document.getElementById('results').value = sensorValStr;
     };
 }
