@@ -2,8 +2,17 @@ function checkSensors(){
     let accelerometer = null;
     DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') {
-            alert("accelerometer permission granted");
+            //alert("accelerometer permission granted");
             // Do stuff here
+            navigator.permissions.query({ name: 'accelerometer' })
+            .then((result) => {
+                if (result.state === 'denied') {
+                    alert("userAgent permission not granted")
+                }
+                else {
+                    alert("userAgent permission granted")
+                }
+            });
             try {
                 let hasPermission = false;
                 //if (navigator.userAgent.includes('Chrome')) {
@@ -12,15 +21,6 @@ function checkSensors(){
                 //        hasPermission = true;
                 //}
 
-                navigator.permissions.query({ name: 'accelerometer' })
-                .then((result) => {
-                    if (result.state === 'denied') {
-                        alert("userAgent permission not granted")
-                    }
-                    else {
-                        alert("userAgent permission granted")
-                    }
-                });
                 accelerometer = new Accelerometer({ frequency: 10 });
                 accelerometer.onerror = (event) => {
                 // Handle runtime errors.
