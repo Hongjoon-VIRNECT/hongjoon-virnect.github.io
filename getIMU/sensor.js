@@ -1,3 +1,10 @@
+function getOrientation(){
+    const rotateDegrees = orientationEvent.alpha;
+    const leftToRight = orientationEvent.gamma;
+    const frontToBack = orientationEvent.beta;
+    handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+}
+
 function checkSensors(){
     if (DeviceMotionEvent.requestPermission) {
         DeviceMotionEvent.requestPermission()
@@ -30,10 +37,11 @@ function checkSensors(){
         //alert("Device motion permission access method not available");
         //Since requestPermission is not supported chrome android 17, call them directly without permission grant
         window.addEventListener("deviceorientation", (orientationEvent) => {
-            const rotateDegrees = orientationEvent.alpha;
-            const leftToRight = orientationEvent.gamma;
-            const frontToBack = orientationEvent.beta;
-            handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+            //const rotateDegrees = orientationEvent.alpha;
+            //const leftToRight = orientationEvent.gamma;
+            //const frontToBack = orientationEvent.beta;
+            //handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+            setInterval (getOrientation, 1000);
         }, true);
         window.addEventListener("devicemotion", (motionEvent) => {
             const accX = motionEvent.acceleration.x;
