@@ -55,8 +55,11 @@ function checkSensors(){
         var alphaValStr = 'Alpha: ' + rotateDegrees;
         var gammaValStr = 'Gamma: ' + leftToRight;
         var betaValStr = 'Beta: ' + frontToBack;
-        document.getElementById('rotateDegrees_result').value = alphaValStr;
-        document.getElementById('leftToRight_result').value = gammaValStr;
-        document.getElementById('frontToBack_result').value = betaValStr;
+        //document.getElementById('rotateDegrees_result').value = alphaValStr;
+        //document.getElementById('leftToRight_result').value = gammaValStr;
+        //document.getElementById('frontToBack_result').value = betaValStr;
+        document.getElementById('rotateDegrees_result').innerHTML = alphaValStr;
+        document.getElementById('leftToRight_result').innerHTML = gammaValStr;
+        document.getElementById('frontToBack_result').innerHTML = betaValStr;
     };
 }
