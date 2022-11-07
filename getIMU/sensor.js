@@ -58,7 +58,7 @@ function checkSensors(){
 //        console.log("Sorry, your browser doens't support Device Orientation");
 //    }
 
-    const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees, accX, accY, accZ) => {
+    const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
         // when event is occured the display current values
         //This document.write shows the values without overwrite
         //document.write('<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>');
