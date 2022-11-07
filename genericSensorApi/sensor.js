@@ -4,6 +4,18 @@ function checkSensors(){
         if (response == 'granted') {
             //alert("accelerometer permission granted");
             // Do stuff here
+            if (navigator.userAgent.indexOf("Chrome") != -1 )
+            {
+                alert('Chrome');
+            }
+            else if(navigator.userAgent.indexOf("Safari") != -1)
+            {
+                alert('Safari');
+            } 
+            else 
+            {
+                alert('unknown');
+            }
             //if (navigator.userAgent.includes('Chrome')) {
             const accPermission = navigator.permissions.query({ name: 'accelerometer' });
             if (accPermission.state === 'granted') {
