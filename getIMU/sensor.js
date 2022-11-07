@@ -17,7 +17,7 @@ function checkSensors(){
     //    document.write("No, Gyro sensor is not available."+'<br>');
     //}
 
-    if ((DeviceMotionEvent) || (window.DeviceOrientationEvent)) {
+    if (DeviceMotionEvent.requestPermission) {
     //if (typeof(DeviceMotionEvent) !== "undefined" && typeof(DeviceMotionEvent.requestPermission) === "function") {
         DeviceMotionEvent.requestPermission()
             .then(response => {
@@ -44,21 +44,21 @@ function checkSensors(){
                 }
             }).catch((err) => {console.log(err)});
     } else {
-        alert("Device motion permission access method not available");
+        //alert("Device motion permission access method not available");
         //Since requestPermission is not supported chrome android 17, call them directly without permission grant
-//               window.addEventListener("deviceorientation", (orientationEvent) => {
-//                   const rotateDegrees = orientationEvent.alpha;
-//                   const leftToRight = orientationEvent.gamma;
-//                   const frontToBack = orientationEvent.beta;
-//                   handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-//               }, true);
-//               window.addEventListener("devicemotion", (motionEvent) => {
-//                   const accX = motionEvent.acceleration.x;
-//                   const accY = motionEvent.acceleration.y;
-//                   const accZ = motionEvent.acceleration.z;
-//                   handleMotionEvent(accX, accY, accZ);
-//               }, true);
-    }
+               window.addEventListener("deviceorientation", (orientationEvent) => {
+                   const rotateDegrees = orientationEvent.alpha;
+                   const leftToRight = orientationEvent.gamma;
+                   const frontToBack = orientationEvent.beta;
+                   handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+               }, true);
+               window.addEventListener("devicemotion", (motionEvent) => {
+                   const accX = motionEvent.acceleration.x;
+                   const accY = motionEvent.acceleration.y;
+                   const accZ = motionEvent.acceleration.z;
+                   handleMotionEvent(accX, accY, accZ);
+               }, true);
+}
 //    if (window.DeviceOrientationEvent) {
 //        window.addEventListener("deviceorientation", (event) => {
 //            const rotateDegrees = event.alpha; // alpha: rotation around z-axis
