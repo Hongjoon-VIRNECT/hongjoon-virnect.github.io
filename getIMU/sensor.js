@@ -12,13 +12,14 @@ function checkSensors(){
                     }, true);
                     window.addEventListener("devicemotion", (motionEvent) => {
                         //accelerationIncludeGravity seems not be defined on iOS device
-                        const accGravityX = motionEvent.accelerationIncludingGravity.x;
-                        const accGravityY = motionEvent.accelerationIncludingGravity.y;
-                        const accGravityZ = motionEvent.accelerationIncludingGravity.z;
                         const accX = motionEvent.acceleration.x;
                         const accY = motionEvent.acceleration.y;
                         const accZ = motionEvent.acceleration.z;
-                        handleMotionEvent(accX, accY, accZ);
+                        const accGravityX = motionEvent.accelerationIncludingGravity.x;
+                        const accGravityY = motionEvent.accelerationIncludingGravity.y;
+                        const accGravityZ = motionEvent.accelerationIncludingGravity.z;
+                        const accInterval = motionEvent.interval;
+                        handleMotionEvent(accX, accY, accZ, accGravityX, accGravityY, accGravityZ, accInterval);
                     }, true);
                 } else {
                     alert('Device orientation permission not granted');
@@ -34,13 +35,14 @@ function checkSensors(){
             handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
         }, true);
         window.addEventListener("devicemotion", (motionEvent) => {
-            const accGravityX = motionEvent.accelerationIncludingGravity.x;
-            const accGravityY = motionEvent.accelerationIncludingGravity.y;
-            const accGravityZ = motionEvent.accelerationIncludingGravity.z;
             const accX = motionEvent.acceleration.x;
             const accY = motionEvent.acceleration.y;
             const accZ = motionEvent.acceleration.z;
-            handleMotionEvent(accX, accY, accZ, accGravityX, accGravityY, accGravityZ);
+            const accGravityX = motionEvent.accelerationIncludingGravity.x;
+            const accGravityY = motionEvent.accelerationIncludingGravity.y;
+            const accGravityZ = motionEvent.accelerationIncludingGravity.z;
+            const accInterval = motionEvent.interval;
+            handleMotionEvent(accX, accY, accZ, accGravityX, accGravityY, accGravityZ, accInterval);
         }, true);
     }
 
@@ -57,13 +59,14 @@ function checkSensors(){
         document.getElementById('frontToBack_result').innerHTML = betaValStr;
     };
 
-    const handleMotionEvent = (accX, accY, accZ, accGravityX, accGravityY, accGravityZ) => {
+    const handleMotionEvent = (accX, accY, accZ, accGravityX, accGravityY, accGravityZ, accInterval) => {
         var accXStr = 'X: ' + accX;
         var accYStr = 'Y: ' + accY;
         var accZStr = 'Z: ' + accZ;
         var accGravityXStr = 'Gravity X: ' + accGravityX;
         var accGravityYStr = 'Gravity Y: ' + accGravityY;
         var accGravityZStr = 'Gravity Z: ' + accGravityZ;
+        var accIntervalStr = 'Gravity Z: ' + accInterval;
 
         document.getElementById('acc_x_result').innerHTML = accXStr;
         document.getElementById('acc_y_result').innerHTML = accYStr;
@@ -71,5 +74,6 @@ function checkSensors(){
         document.getElementById('acc_gravity_x_result').innerHTML = accGravityXStr;
         document.getElementById('acc_gravity_y_result').innerHTML = accGravityYStr;
         document.getElementById('acc_gravity_z_result').innerHTML = accGravityZStr;
+        document.getElementById('acc_interval_result').innerHTML = accIntervalStr;
     }
 }
