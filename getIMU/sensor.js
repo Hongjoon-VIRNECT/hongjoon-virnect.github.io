@@ -18,7 +18,6 @@ function checkSensors(){
     //}
 
     if (DeviceMotionEvent.requestPermission) {
-    //if (typeof(DeviceMotionEvent) !== "undefined" && typeof(DeviceMotionEvent.requestPermission) === "function") {
         DeviceMotionEvent.requestPermission()
             .then(response => {
                 if (response == "granted") {
@@ -58,18 +57,7 @@ function checkSensors(){
                    const accZ = motionEvent.acceleration.z;
                    handleMotionEvent(accX, accY, accZ);
                }, true);
-}
-//    if (window.DeviceOrientationEvent) {
-//        window.addEventListener("deviceorientation", (event) => {
-//            const rotateDegrees = event.alpha; // alpha: rotation around z-axis
-//            const leftToRight = event.gamma; // gamma: left to right
-//            const frontToBack = event.beta; // beta: front back motion
-//
-//            handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-//        }, true);
-//    } else {
-//        console.log("Sorry, your browser doens't support Device Orientation");
-//    }
+    }
 
     const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
         //when event is occured the display current values
@@ -88,7 +76,6 @@ function checkSensors(){
         var accXStr = 'X: ' + accX;
         var accYStr = 'Y: ' + accY;
         var accZStr = 'Z: ' + accZ;
-
         document.getElementById('acc_x_result').innerHTML = accXStr;
         document.getElementById('acc_y_result').innerHTML = accYStr;
         document.getElementById('acc_z_result').innerHTML = accZStr;
