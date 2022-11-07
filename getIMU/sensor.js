@@ -30,9 +30,13 @@ function checkSensors(){
                         handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
                     }, true);
                     window.addEventListener("devicemotion", (motionEvent) => {
-                        const accX = motionEvent.accelerationIncludingGravity.x;
-                        const accY = motionEvent.accelerationIncludingGravity.y;
-                        const accZ = motionEvent.accelerationIncludingGravity.z;
+                        //accelerationIncludeGravity seems not be defined on iOS device
+                        //const accX = motionEvent.accelerationIncludingGravity.x;
+                        //const accY = motionEvent.accelerationIncludingGravity.y;
+                        //const accZ = motionEvent.accelerationIncludingGravity.z;
+                        const accX = motionEvent.acceleration.x;
+                        const accY = motionEvent.acceleration.y;
+                        const accZ = motionEvent.acceleration.z;
                         handleMotionEvent(accX, accY, accZ);
                     }, true);
                 } else {
