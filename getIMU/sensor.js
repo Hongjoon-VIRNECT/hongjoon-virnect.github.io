@@ -17,7 +17,7 @@ function checkSensors(){
     //    document.write("No, Gyro sensor is not available."+'<br>');
     //}
 
-    if ((DeviceMotionEvent) || (DeviceOrientationEvent)) {
+    if ((DeviceMotionEvent) || (window.DeviceOrientationEvent)) {
     //if (typeof(DeviceMotionEvent) !== "undefined" && typeof(DeviceMotionEvent.requestPermission) === "function") {
         DeviceMotionEvent.requestPermission()
             .then(response => {
