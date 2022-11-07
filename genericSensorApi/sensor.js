@@ -2,7 +2,7 @@ function checkSensors(){
     let accelerometer = null;
     DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') {
-            alert("accelerometer permission granted");
+            alert("DeviceMotionEvent permission granted");
             // Do stuff here
             if (navigator.userAgent.includes('Chrome') || navigator.userAgent.includes('Safari')) {
                 const accPermission = navigator.permissions.query({ name: 'Accelerometer' });
