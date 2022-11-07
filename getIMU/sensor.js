@@ -17,8 +17,8 @@ function checkSensors(){
     //    document.write("No, Gyro sensor is not available."+'<br>');
     //}
 
-    if (DeviceMotionEvent.requestPermission) {
-    //if (typeof(DeviceMotionEvent) !== "undefined" && typeof(DeviceMotionEvent.requestPermission) === "function") {
+    //if (DeviceMotionEvent.requestPermission) {
+    if (typeof(DeviceMotionEvent) !== "undefined" && typeof(DeviceMotionEvent.requestPermission) === "function") {
         DeviceMotionEvent.requestPermission()
             .then(response => {
                 if (response == "granted") {
@@ -59,11 +59,10 @@ function checkSensors(){
 //    }
 
     const handleOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
-        // when event is occured the display current values
-        //This document.write shows the values without overwrite
+        //when event is occured the display current values
+        //This way (calling document.write) shows the values without overwriting (it makes many lines)
         //document.write('<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>');
-        //var sensorValStr = '<p>Alpha: ' + rotateDegrees + '<br>' + 'Beta: ' + frontToBack + '<br>' + 'Gamma: ' + leftToRight + '</p>';
-        //document.getElementById('results').innerHTML = sensorValStr;
+        //So that showing values using document.getElementById
         var alphaValStr = 'Alpha: ' + rotateDegrees;
         var gammaValStr = 'Gamma: ' + leftToRight;
         var betaValStr = 'Beta: ' + frontToBack;
