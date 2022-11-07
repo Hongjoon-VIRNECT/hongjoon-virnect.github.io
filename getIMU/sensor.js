@@ -66,7 +66,7 @@ function checkSensors(){
         var accGravityXStr = 'Gravity X: ' + accGravityX;
         var accGravityYStr = 'Gravity Y: ' + accGravityY;
         var accGravityZStr = 'Gravity Z: ' + accGravityZ;
-        var accIntervalStr = 'Gravity Z: ' + accInterval;
+        var accIntervalStr = 'Acc Interval: ' + accInterval;
 
         document.getElementById('acc_x_result').innerHTML = accXStr;
         document.getElementById('acc_y_result').innerHTML = accYStr;
