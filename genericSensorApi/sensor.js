@@ -4,11 +4,12 @@ function checkSensors(){
         if (response == 'granted') {
             //alert("accelerometer permission granted");
             // Do stuff here
-            if (navigator.userAgent.indexOf("Chrome") != -1 )
+            var userAgent=navigator.userAgent.toLowerCase();
+            if (userAgent.indexOf("chrome") != -1 )
             {
                 alert('Chrome');
             }
-            else if(navigator.userAgent.indexOf("Safari") != -1)
+            else if(userAgent.indexOf("safari") != -1)
             {
                 alert('Safari');
             } 
@@ -17,12 +18,12 @@ function checkSensors(){
                 alert('unknown');
             }
             //if (navigator.userAgent.includes('Chrome')) {
-            const accPermission = navigator.permissions.query({ name: 'accelerometer' });
+            const accPermission = navigator.permissions.query({ name: 'LinearAccelerationSensor' });
             if (accPermission.state === 'granted') {
-                alert("userAgent permission granted")
+                alert("LinearAcceleration permission granted")
             }
             else {
-                alert("userAgent permission not granted")
+                alert("LinearAcceleration permission not granted")
             }
             //}
             //else {
@@ -36,7 +37,7 @@ function checkSensors(){
                 //        hasPermission = true;
                 //}
 
-                accelerometer = new Accelerometer({ frequency: 10 });
+                accelerometer = new LinearAccelerationSensor({ frequency: 10 });
                 accelerometer.onerror = (event) => {
                 // Handle runtime errors.
                   if (event.error.name === 'NotAllowedError') {
