@@ -2,42 +2,19 @@ function checkSensors(){
     let accelerometer = null;
     DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') {
-            //alert("accelerometer permission granted");
+            alert("accelerometer permission granted");
             // Do stuff here
-            var userAgent=navigator.userAgent.toLowerCase();
-            if (userAgent.indexOf("chrome") != -1 )
-            {
-                alert('Chrome');
+            if (navigator.userAgent.includes('Chrome') || navigator.userAgent.includes('Safari')) {
+                const accPermission = navigator.permissions.query({ name: 'Accelerometer' });
+                if (accPermission.state === 'granted') {
+                    alert("Accelerometer permission granted")
+                }
+                else {
+                    alert("Accelerometer permission not granted")
+                }
             }
-            else if(userAgent.indexOf("safari") != -1)
-            {
-                alert('Safari');
-            } 
-            else 
-            {
-                alert('unknown');
-            }
-            //if (navigator.userAgent.includes('Chrome')) {
-            const accPermission = navigator.permissions.query({ name: 'LinearAccelerationSensor' });
-            if (accPermission.state === 'granted') {
-                alert("LinearAcceleration permission granted")
-            }
-            else {
-                alert("LinearAcceleration permission not granted")
-            }
-            //}
-            //else {
-            //    alert("userAgent check wasn't done")
-            //}
             try {
-                let hasPermission = false;
-                //if (navigator.userAgent.includes('Chrome')) {
-                //    const accPermission = navigator.permissions.query({ name: "accelerometer" });
-                //    if (accPermission.state === 'granted')
-                //        hasPermission = true;
-                //}
-
-                accelerometer = new LinearAccelerationSensor({ frequency: 10 });
+                accelerometer = new Accelerometer({ frequency: 30 });
                 accelerometer.onerror = (event) => {
                 // Handle runtime errors.
                   if (event.error.name === 'NotAllowedError') {
