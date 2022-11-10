@@ -4,21 +4,26 @@ function checkSensors(){
         DeviceMotionEvent.requestPermission()
             .then(response => {
                 if (response == "granted") {
-                    window.addEventListener("deviceorientation", (orientationEvent) => {
-                        const rotateDegrees = orientationEvent.alpha;
-                        const leftToRight = orientationEvent.gamma;
-                        const frontToBack = orientationEvent.beta;
+                    //window.setInterval((motionEvent, 100));
+                    setInterval(function () {
+                        window.addEventListener("deviceorientation", (orientationEvent) => {
+                            const rotateDegrees = orientationEvent.alpha;
+                            const leftToRight = orientationEvent.gamma;
+                            const frontToBack = orientationEvent.beta;
 
-                        handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-                    }, true);
-                    window.addEventListener("devicemotion", (motionEvent) => {
-                        //accelerationIncludeGravity seems not be defined on iOS device
-                        const accX = motionEvent.acceleration.x;
-                        const accY = motionEvent.acceleration.y;
-                        const accZ = motionEvent.acceleration.z;
-                        const accInterval = motionEvent.interval;
-                        handleMotionEvent(accX, accY, accZ, accInterval);
-                    }, true);
+                            handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+                        }, true);
+
+                        window.addEventListener("devicemotion", (motionEvent) => {
+                            //accelerationIncludeGravity seems not be defined on iOS device
+                            const accX = motionEvent.acceleration.x;
+                            const accY = motionEvent.acceleration.y;
+                            const accZ = motionEvent.acceleration.z;
+                            const accInterval = motionEvent.interval;
+
+                            handleMotionEvent(accX, accY, accZ, accInterval);
+                        }, true);
+                    }, 150);
                 } else {
                     alert('Device orientation permission not granted');
                 }
