@@ -25,11 +25,20 @@ function checkSensors(){
                         //console.log('Cannot connect to the sensor.');
                   }
                 };
-                accelerometer.onreading = (e) => {
-                    //console.log(e);
-                    document.write(e);
-                };
                 accelerometer.start();
+                accelerometer.onreading = () => {
+                    //console.log(e);
+                    //document.write(e);
+                    let x = accelerometer.x;
+                    let y = accelerometer.y;
+                    let z = accelerometer.z;
+                    let interval = accelerometer.interval;
+                    document.getElementById("acc_x_result").innerHTML = x;
+                    document.getElementById("acc_y_result").innerHTML = y;
+                    document.getElementById("acc_z_result").innerHTML = z;
+                    document.getElementById("acc_interval_result").innerHTML = interval;
+
+                };
             } catch (error) {
                 // Handle construction errors.
                 if (error.name === 'SecurityError') {
