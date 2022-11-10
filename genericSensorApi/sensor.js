@@ -25,10 +25,7 @@ function checkSensors(){
                 //console.log('Cannot connect to the sensor.');
           }
         };
-        accelerometer.start();
-        accelerometer.onreading = () => {
-            //console.log(e);
-            //document.write(e);
+        accelerometer.addEventListener("reading", () => {
             let x = Number(accelerometer.x.toFixed(5));
             let y = Number(accelerometer.y.toFixed(5));
             let z = Number(accelerometer.z.toFixed(5));
@@ -37,7 +34,8 @@ function checkSensors(){
             document.getElementById("acc_y_result").innerHTML = y;
             document.getElementById("acc_z_result").innerHTML = z;
             document.getElementById("acc_interval_result").innerHTML = interval;
-        };
+        });
+        accelerometer.start();
     } catch (error) {
         // Handle construction errors.
         if (error.name === 'SecurityError') {
