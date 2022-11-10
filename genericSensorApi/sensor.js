@@ -1,6 +1,6 @@
 function checkSensors(){
-    //let accelerometer = new Accelerometer({ frequency: 60 });
-    let accelerometer = new LinearAccelerationSensor({ frequency: 1 });
+    let accelerometer = new Accelerometer({ frequency: 200 });
+    //let accelerometer = new LinearAccelerationSensor({ frequency: 1 });
     accelerometer.onerror = (event) => {
     // Handle runtime errors.
       if (event.error.name === 'NotAllowedError') {
@@ -12,14 +12,18 @@ function checkSensors(){
       }
     };
     accelerometer.addEventListener("reading", () => {
-        let x = accelerometer.x;
-        let y = accelerometer.y;
-        let z = accelerometer.z;
-        let interval = accelerometer.interval;
-        document.getElementById("acc_x_result").innerHTML = x;
-        document.getElementById("acc_y_result").innerHTML = y;
-        document.getElementById("acc_z_result").innerHTML = z;
-        document.getElementById("acc_interval_result").innerHTML = interval;
+        let accX = accelerometer.x;
+        let accY = accelerometer.y;
+        let accZ = accelerometer.z;
+        let accInt = accelerometer.interval;
+        var accXStr = 'X(m/s^2): ' + accX;
+        var accYStr = 'Y(m/s^2): ' + accY;
+        var accZStr = 'Z(m/s^2): ' + accZ;
+        var accIntervalStr = 'Acc Interval(ms): ' + accInt;
+        document.getElementById("acc_x_result").innerHTML = accXStr;
+        document.getElementById("acc_y_result").innerHTML = accYStr;
+        document.getElementById("acc_z_result").innerHTML = accZStr;
+        document.getElementById("acc_interval_result").innerHTML = accIntervalStr;
     });
     accelerometer.start();
 }
