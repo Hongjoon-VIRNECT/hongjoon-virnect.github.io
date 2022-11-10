@@ -1,4 +1,8 @@
-function checkSensors(){
+function stopSensors(){
+    gyroscope.stop();
+    accelerometer.stop();
+}
+function startSensors(){
     //let accelerometer = new LinearAccelerationSensor({ frequency: 1 });
     const accelerometer = new Accelerometer({ frequency: 200 });
     const gyroscope = new Gyroscope({ frequency: 200 });
@@ -16,9 +20,9 @@ function checkSensors(){
         let gyroX = gyroscope.x;
         let gyroY = gyroscope.y;
         let gyroZ = gyroscope.z;
-        var gyroXStr = 'gyro X(deg): ' + gyroX;
-        var gyroYStr = 'gyro Y(deg): ' + gyroY;
-        var gyroZStr = 'gyro Z(deg): ' + gyroZ;
+        var gyroXStr = 'X-Pitch(deg): ' + gyroX;
+        var gyroYStr = 'Y-Roll(deg): ' + gyroY;
+        var gyroZStr = 'Z-Yaw(deg): ' + gyroZ;
         document.getElementById("gyro_x_result").innerHTML = gyroXStr;
         document.getElementById("gyro_y_result").innerHTML = gyroYStr;
         document.getElementById("gyro_z_result").innerHTML = gyroZStr;
