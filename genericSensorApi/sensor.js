@@ -23,7 +23,8 @@ function startSensors() {
             let accX  = accel.x;
             let accY  = accel.y;
             let accZ  = accel.z;
-            let accTS = accel.timestamp;
+            //let accTS = accel.timestamp;
+            let accTS = performance.now();
             var accXStr  = 'Acc X(m/s^2): ' + accX;
             var accYStr  = 'Acc Y(m/s^2): ' + accY;
             var accZStr  = 'Acc Z(m/s^2): ' + accZ;
