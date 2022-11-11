@@ -3,7 +3,7 @@ function startSensors() {
     let accIntOld = 0;
     let accIntDif = 0;
     if('Gyroscope' in window) {
-        let gyro = new Gyroscope({ frequency: 100 });
+        let gyro = new Gyroscope({ frequency: 2000 });
         gyro.addEventListener("reading", () => {
             var gyroX = gyro.x;
             var gyroY = gyro.y;
@@ -21,7 +21,7 @@ function startSensors() {
     }
 
     if('Accelerometer' in window) {
-        let accel = new Accelerometer({ frequency: 100 });
+        let accel = new Accelerometer({ frequency: 2000 });
         accel.addEventListener("reading", () => {
             accIntDif = performance.now() - accIntOld;
             
