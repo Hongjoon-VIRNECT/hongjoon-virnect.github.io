@@ -12,7 +12,7 @@ function startSensors() {
             document.getElementById("gyro_y_result").innerHTML = gyroYStr;
             document.getElementById("gyro_z_result").innerHTML = gyroZStr;
         });
-        gyroscope.start();
+        gyro.start();
     } else {
         alert("Your browser doesn't support Gyroscope sensor!");
     }
@@ -33,7 +33,7 @@ function startSensors() {
             document.getElementById("acc_z_result").innerHTML  = accZStr;
             document.getElementById("acc_timestamp").innerHTML = accTSStr;
         });
-        accelerometer.start();
+        accel.start();
     } else {
         alert("Your browser doesn't support Accelerometer sensor!");
     }
