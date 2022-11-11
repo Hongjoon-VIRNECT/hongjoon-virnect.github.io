@@ -1,5 +1,6 @@
 function startSensors() {
-    let accInt = 0;
+    let accIntNew = 0;
+    let accIntOld = 0;
     if('Gyroscope' in window) {
         let gyro = new Gyroscope({ frequency: 200 });
         gyro.addEventListener("reading", () => {
@@ -21,6 +22,8 @@ function startSensors() {
     if('Accelerometer' in window) {
         let accel = new Accelerometer({ frequency: 60  });
         accel.addEventListener("reading", () => {
+            accIntNew = performance.now() - accIntOld;
+            accIntOld = performance.now();
             let accX  = accel.x;
             let accY  = accel.y;
             let accZ  = accel.z;
@@ -29,8 +32,7 @@ function startSensors() {
             var accYStr   = 'Acc Y(m/s^2): ' + accY;
             var accZStr   = 'Acc Z(m/s^2): ' + accZ;
             var accTSStr  = 'timestamp: '    + accTS;
-            var accIntStr = 'Interal[ms]: '  + accInt;
-            accInt = performance.now() - accInt;
+            var accIntStr = 'Interal[ms]: '  + accIntNew;
             document.getElementById("acc_x_result").innerHTML  = accXStr;
             document.getElementById("acc_y_result").innerHTML  = accYStr;
             document.getElementById("acc_z_result").innerHTML  = accZStr;
