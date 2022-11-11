@@ -27,7 +27,10 @@ function startSensors() {
             let accX  = accel.x;
             let accY  = accel.y;
             let accZ  = accel.z;
-            let accTS = accel.timestamp;
+            //This accel.timestamp is not correct in Redmi device
+            //let accTS = accel.timestamp;
+            //let accTS = System.currentTimeMillis() + Math.round((accel.timestamp - System.nanoTime()) / 1000000.0);
+            let accTS = System.currentTimeMillis() + (accel.timestamp - System.nanoTime()) / 1000000.0;
             var accXStr   = 'Acc X(m/s^2): ' + accX;
             var accYStr   = 'Acc Y(m/s^2): ' + accY;
             var accZStr   = 'Acc Z(m/s^2): ' + accZ;
