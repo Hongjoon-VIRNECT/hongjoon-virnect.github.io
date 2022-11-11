@@ -20,7 +20,7 @@ function startSensors() {
     }
 
     if('Accelerometer' in window) {
-        let accel = new Accelerometer({ frequency: 60  });
+        let accel = new Accelerometer({ frequency: 2000  });
         accel.addEventListener("reading", () => {
             accIntNew = performance.now() - accIntOld;
             accIntOld = performance.now();
@@ -37,6 +37,7 @@ function startSensors() {
             document.getElementById("acc_y_result").innerHTML  = accYStr;
             document.getElementById("acc_z_result").innerHTML  = accZStr;
             document.getElementById("acc_timestamp").innerHTML = accTSStr;
+            //if (accNew % 1000) < 1) 
             document.getElementById("acc_interval").innerHTML  = accIntStr;
         });
         accel.start();
