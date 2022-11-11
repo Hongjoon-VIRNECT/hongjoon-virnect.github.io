@@ -20,10 +20,10 @@ function startSensors() {
     }
 
     if('Accelerometer' in window) {
-        let accel = new Accelerometer({ frequency: 2000  });
+        let accel = new Accelerometer({ frequency: 500  });
         accel.addEventListener("reading", () => {
             accIntNew = performance.now() - accIntOld;
-            accIntOld = performance.now();
+            accIntOld = accIntNew;
             let accX  = accel.x;
             let accY  = accel.y;
             let accZ  = accel.z;
