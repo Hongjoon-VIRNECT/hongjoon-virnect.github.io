@@ -1,4 +1,5 @@
 function startSensors() {
+    let accInt = 0;
     if('Gyroscope' in window) {
         let gyro = new Gyroscope({ frequency: 200 });
         gyro.addEventListener("reading", () => {
@@ -18,22 +19,23 @@ function startSensors() {
     }
 
     if('Accelerometer' in window) {
-        let accel = new Accelerometer({ frequency: 1  });
+        let accel = new Accelerometer({ frequency: 60  });
         accel.addEventListener("reading", () => {
             let accX  = accel.x;
             let accY  = accel.y;
             let accZ  = accel.z;
-            //let accTS = accel.timestamp;
-            let accTS = performance.now();
-            var accXStr  = 'Acc X(m/s^2): ' + accX;
-            var accYStr  = 'Acc Y(m/s^2): ' + accY;
-            var accZStr  = 'Acc Z(m/s^2): ' + accZ;
-            var accTSStr = 'timestamp: '    + accTS;
-            //document.getElementById("acc_x_result").innerHTML  = accXStr;
-            //document.getElementById("acc_y_result").innerHTML  = accYStr;
-            //document.getElementById("acc_z_result").innerHTML  = accZStr;
-            //document.getElementById("acc_timestamp").innerHTML = accTSStr;
-            document.write (accTSStr + '<br>');
+            let accTS = accel.timestamp;
+            var accXStr   = 'Acc X(m/s^2): ' + accX;
+            var accYStr   = 'Acc Y(m/s^2): ' + accY;
+            var accZStr   = 'Acc Z(m/s^2): ' + accZ;
+            var accTSStr  = 'timestamp: '    + accTS;
+            var accIntStr = 'Interal[ms]: '  + accInt;
+            accInt = performance.now() - accInt;
+            document.getElementById("acc_x_result").innerHTML  = accXStr;
+            document.getElementById("acc_y_result").innerHTML  = accYStr;
+            document.getElementById("acc_z_result").innerHTML  = accZStr;
+            document.getElementById("acc_timestamp").innerHTML = accTSStr;
+            document.getElementById("acc_interval").innerHTML  = accIntStr;
         });
         accel.start();
     } else {
