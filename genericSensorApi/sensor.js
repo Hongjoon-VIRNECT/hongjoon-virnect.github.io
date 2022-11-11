@@ -18,7 +18,7 @@ function startSensors() {
     }
 
     if('Accelerometer' in window) {
-        let accel = new Accelerometer({ frequency: 200 });
+        let accel = new Accelerometer({ frequency: 1  });
         accel.addEventListener("reading", () => {
             let accX  = accel.x;
             let accY  = accel.y;
