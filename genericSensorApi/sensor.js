@@ -1,6 +1,6 @@
 function startSensors() {
     let accIntNew = 0;
-    //let accIntOld = 0;
+    let accIntOld = 0;
     if('Gyroscope' in window) {
         let gyro = new Gyroscope({ frequency: 1 });
         gyro.addEventListener("reading", () => {
