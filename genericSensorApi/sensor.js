@@ -22,8 +22,8 @@ function startSensors() {
     if('Accelerometer' in window) {
         let accel = new Accelerometer({ frequency: 1 });
         accel.addEventListener("reading", () => {
-            accIntNew = performance.now() - accIntOld;
-            accIntOld = accIntNew;
+            //accIntNew = performance.now() - accIntOld;
+            //accIntOld = accIntNew;
             //accIntNew = performance.now() - accIntNew;
             
             let accX  = accel.x;
@@ -37,7 +37,8 @@ function startSensors() {
             var accYStr   = 'Acc Y(m/s^2): ' + accY;
             var accZStr   = 'Acc Z(m/s^2): ' + accZ;
             var accTSStr  = 'timestamp: '    + accTS;
-            var accIntStr = 'Interal[ms]: '  + accIntNew;
+            //var accIntStr = 'Interal[ms]: '  + accIntNew;
+            var accIntStr = 'Interal[ms]: '  + performance.now();
             document.getElementById("acc_x_result").innerHTML  = accXStr;
             document.getElementById("acc_y_result").innerHTML  = accYStr;
             document.getElementById("acc_z_result").innerHTML  = accZStr;
