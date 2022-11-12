@@ -3,7 +3,7 @@ function startSensors() {
     let accIntOld = 0;
     let accIntDif = 0;
     if('Gyroscope' in window) {
-        let gyro = new Gyroscope({ frequency: 2000 });
+        let gyro = new Gyroscope({ frequency: 1 });
         gyro.addEventListener("reading", () => {
             var gyroX = gyro.x;
             var gyroY = gyro.y;
@@ -21,14 +21,15 @@ function startSensors() {
     }
 
     if('Accelerometer' in window) {
-        let accel = new Accelerometer({ frequency: 2000 });
+        let accel = new Accelerometer({ frequency: 1 });
         accel.addEventListener("reading", () => {
             accIntDif = performance.now() - accIntOld;
             
             let accX  = accel.x;
             let accY  = accel.y;
             let accZ  = accel.z;
-            //This accel.timestamp is not correct in Redmi device
+            //This accel.timestamp is not correct in Redmi device (9 digit)
+            //Galaxy A53 hs a correct number of digit (10) but seems the timestamp was shifted
             let accTS = accel.timestamp;
             //let accTS = System.currentTimeMillis() + Math.round((accel.timestamp - System.nanoTime()) / 1000000.0);
             //let accTS = System.currentTimeMillis() + (accel.timestamp - System.nanoTime()) / 1000000.0;
@@ -42,7 +43,6 @@ function startSensors() {
             document.getElementById("acc_y_result").innerHTML  = accYStr;
             document.getElementById("acc_z_result").innerHTML  = accZStr;
             document.getElementById("acc_timestamp").innerHTML = accTSStr;
-            //if (accNew % 1000) < 1) 
             document.getElementById("acc_interval").innerHTML  = accIntStr;
             accIntOld = performance.now()
         });
