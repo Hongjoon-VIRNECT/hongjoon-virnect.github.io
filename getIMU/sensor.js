@@ -39,7 +39,8 @@ function checkSensors(){
             const accY = motionEvent.acceleration.y;
             const accZ = motionEvent.acceleration.z;
             const accInterval = motionEvent.interval;
-            handleMotionEvent(accX, accY, accZ, accInterval);
+            const accTimestamp = motionEvent.timeStamp;
+            handleMotionEvent(accX, accY, accZ, accInterval, accTimestamp);
         }, true);
     }
 
@@ -56,15 +57,17 @@ function checkSensors(){
         document.getElementById('frontToBack_result').innerHTML = betaValStr;
     };
 
-    const handleMotionEvent = (accX, accY, accZ, accInterval) => {
+    const handleMotionEvent = (accX, accY, accZ, accInterval, accTimestamp) => {
         var accXStr = 'X(m/s^2): ' + accX;
         var accYStr = 'Y(m/s^2): ' + accY;
         var accZStr = 'Z(m/s^2): ' + accZ;
         var accIntervalStr = 'Acc Interval(ms): ' + accInterval;
+        var accTimestampStr= 'Acc Tiemstamp(ms): ' + accTimestamp;
 
         document.getElementById('acc_x_result').innerHTML = accXStr;
         document.getElementById('acc_y_result').innerHTML = accYStr;
         document.getElementById('acc_z_result').innerHTML = accZStr;
         document.getElementById('acc_interval_result').innerHTML = accIntervalStr;
+        document.getElementById('acc_timestamp_result').innerHTML = accTimestampStr;
     }
 }
