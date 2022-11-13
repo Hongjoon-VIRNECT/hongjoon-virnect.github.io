@@ -6,14 +6,15 @@ function startSensors() {
         var accZ  = accel.z;
         //var timeStamp = performance.now();
         var timeStamp = accel.timeStamp;
-        handleMotionEvent(accX, accY, accZ, timeStamp);
+        var ts = accel.timestamp;
+        handleMotionEvent(accX, accY, accZ, timeStamp, ts);
         }, true);
     accel.start();
 }
 
-const handleMotionEvent = (accX, accY, accZ, timeStamp) => {
+const handleMotionEvent = (accX, accY, accZ, timeStamp, ts) => {
     //var accXStr = 'X(m/s^2): ' + accX;
     //var accYStr = 'Y(m/s^2): ' + accY;
     //var accZStr = 'Z(m/s^2): ' + accZ;
-    document.write(timeStamp + ',' + accX + ',' + accY + ',' + accZ + '<br>');
+    document.write(timeStamp + ',' + ts + ',' + accX + ',' + accY + ',' + accZ + '<br>');
 }
