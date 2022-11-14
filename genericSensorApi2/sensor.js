@@ -16,5 +16,5 @@ function startSensors() {
 }
 
 const handleMotionEvent = (accInterval, accX, accY, accZ) => {
-    document.write('Freq:10Hz,' + 'interval(ms):' + accInterval + ',' + accX + ',' + accY + ',' + accZ + '<br>');
+    document.write('Freq:50Hz,' + 'interval(ms):' + accInterval + ',' + accX + ',' + accY + ',' + accZ + '<br>');
 }
