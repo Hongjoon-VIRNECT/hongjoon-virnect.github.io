@@ -1,5 +1,6 @@
 function intervalHandler(interval) {
-    document.getElementById("acc_interval").innerHTML = interval;
+    var accIntStr  = 'interval[ms]: ' + interval;
+    document.getElementById("acc_interval").innerHTML = accIntStr;
 }
 function accelerationHandler(acceleration) {
     var accX = acceleration.x;
