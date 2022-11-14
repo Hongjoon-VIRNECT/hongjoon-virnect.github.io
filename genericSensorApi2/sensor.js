@@ -1,5 +1,5 @@
 function startSensors() {
-    let accel = new Accelerometer({ frequency: 100 });
+    let accel = new Accelerometer({ frequency: 60 });
     accel.addEventListener("reading", () => {
         var accX  = accel.x;
         var accY  = accel.y;
