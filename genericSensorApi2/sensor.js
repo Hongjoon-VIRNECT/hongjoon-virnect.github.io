@@ -1,7 +1,7 @@
 function startSensors() {
     let lastReadingTimestamp;
     let accInterval;
-    let accel = new Accelerometer({ frequency: 10 });
+    let accel = new Accelerometer({ frequency: 50 });
     accel.addEventListener("reading", () => {
         if (lastReadingTimestamp) {
             accInterval = Math.round(accel.timestamp - lastReadingTimestamp);
