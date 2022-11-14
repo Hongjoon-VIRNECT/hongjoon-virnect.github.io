@@ -1,5 +1,5 @@
 function startSensors() {
-    let accel = new Accelerometer({ frequency: 60 });
+    let accel = new Accelerometer();
     accel.addEventListener("reading", () => {
         var accX  = accel.x;
         var accY  = accel.y;
@@ -16,5 +16,5 @@ const handleMotionEvent = (accX, accY, accZ, now, ts) => {
     //var accXStr = 'X(m/s^2): ' + accX;
     //var accYStr = 'Y(m/s^2): ' + accY;
     //var accZStr = 'Z(m/s^2): ' + accZ;
-    document.write(ts + ',' + now + ',' + accX + ',' + accY + ',' + accZ + '<br>');
+    document.write('frq:default' + ts + ',' + now + ',' + accX + ',' + accY + ',' + accZ + '<br>');
 }
