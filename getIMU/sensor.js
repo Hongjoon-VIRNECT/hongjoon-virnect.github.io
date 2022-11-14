@@ -74,7 +74,7 @@ function checkSensors(){
         var accYStr = 'Y(m/s^2): ' + accY;
         var accZStr = 'Z(m/s^2): ' + accZ;
         var accIntervalStr = 'Acc Interval(ms): ' + accInterval;
-        var accTimeStampStr= 'Acc Tiemstamp(ms): ' + accTimeStamp;
+        var accTimeStampStr= 'Acc Tiemstamp: ' + accTimeStamp;
 
         document.getElementById('acc_x_result').innerHTML = accXStr;
         document.getElementById('acc_y_result').innerHTML = accYStr;
