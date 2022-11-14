@@ -1,7 +1,7 @@
 function startSensors() {
     let lastReadingTimestamp;
     let accInterval;
-    let accel = new Accelerometer({ frequency: 60 });
+    let accel = new Accelerometer({ frequency: 100 });
     accel.addEventListener("reading", () => {
         if (lastReadingTimestamp) {
             accInterval = Math.round(accel.timestamp - lastReadingTimestamp);
@@ -16,5 +16,5 @@ function startSensors() {
 }
 
 const handleMotionEvent = (accInterval, accX, accY, accZ) => {
-    document.write('Freq: 60Hz,' + 'interval(ms):' + accInterval + ',' + accX + ',' + accY + ',' + accZ + '<br>');
+    document.write('Freq:100Hz,' + 'interval(ms):' + accInterval + ',' + accX + ',' + accY + ',' + accZ + '<br>');
 }
