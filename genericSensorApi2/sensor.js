@@ -1,20 +1,20 @@
 function startSensors() {
+    let lastReadingTimestamp;
+    let accInterval;
     let accel = new Accelerometer();
     accel.addEventListener("reading", () => {
+        if (lastReadingTimestamp) {
+            accInterval = Math.round(accel.timestamp - lastReadingTimestamp);
+        }
+        lastReadingTimestamp = accel.timestamp;
         var accX  = accel.x;
         var accY  = accel.y;
         var accZ  = accel.z;
-        //performance.now() and sensor.timeStamp or event.timestamp
-        var now = performance.now()
-        var ts = accel.timestamp;
-        handleMotionEvent(accX, accY, accZ, now, ts);
+        handleMotionEvent(accInterval, accX, accY, accZ);
         }, true);
     accel.start();
 }
 
-const handleMotionEvent = (accX, accY, accZ, now, ts) => {
-    //var accXStr = 'X(m/s^2): ' + accX;
-    //var accYStr = 'Y(m/s^2): ' + accY;
-    //var accZStr = 'Z(m/s^2): ' + accZ;
-    document.write('frq:default' + ts + ',' + now + ',' + accX + ',' + accY + ',' + accZ + '<br>');
+const handleMotionEvent = (accInterval, accX, accY, accZ) => {
+    document.write('interval(ms): ' + accInterval + ',' + accX + ',' + accY + ',' + accZ + '<br>');
 }
