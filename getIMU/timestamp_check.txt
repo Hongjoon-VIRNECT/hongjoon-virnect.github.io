@@ -1,0 +1,12 @@
+
+Android native app is possible to get sensor data with 200Hz = 5ms
+
+From the timestamp information from Hoyoung
+
+nano:88682313322942
+mili:88682313.322942004
+
+nano: 88682318144244
+mili: 88682318.144244015
+
+diff: 88682318 - 88682313 = 5 ms
